@@ -1,0 +1,28 @@
+.full-width {
+  width: 100%;
+}
+
+.todo-card {
+  width: 450px;
+  margin: 20px auto;
+}
+
+.mat-radio-button {
+  display: block;
+  margin: 5px 0;
+}
+
+
+
+::ng-deep {
+  .row {
+    display: flex;
+    flex-direction: row;
+    .mat-form-field-infix {
+      width: 100%;
+    }
+  }
+  textarea {
+    height: 100px;
+  }
+}

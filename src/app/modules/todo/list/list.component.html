@@ -1,0 +1,54 @@
+
+<div class="toolbar-container">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <span>TODO list</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+<div class="controls">
+  <button mat-flat-button color="primary" (click)="openTodoCreateDialog()">Add TODO</button>
+
+</div>
+  <div class="mat-elevation-z8">
+
+
+
+    <div cdkDropListGroup>
+      <div class="todo-container">
+        <h2>To do</h2>
+        <div
+          cdkDropList
+          [cdkDropListData]="todoList"
+          class="todo-list"
+          (cdkDropListDropped)="drop($event)">
+          <app-todo-item
+          *ngFor="let item of todoList"
+          [item]="item"
+          cdkDrag
+          (onRemoveTodo)="removeTodo($event)"
+          (onEditTodo)="openTodoDialog($event)"
+          ></app-todo-item>
+
+        </div>
+      </div>
+
+      <div class="todo-container">
+        <h2>Done</h2>
+
+        <div
+          cdkDropList
+          [cdkDropListData]="doneList"
+          class="todo-list"
+          (cdkDropListDropped)="drop($event)">
+          <app-todo-item
+          *ngFor="let item of doneList"
+          [item]="item"
+          cdkDrag
+          (onRemoveTodo)="removeTodo($event)"
+          (onEditTodo)="openTodoDialog($event)"
+          ></app-todo-item>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,5 @@
+<div class="todo-box">
+  <a mat-button color="primary" (click)="onEditTodo.emit(item)">{{item.title}}</a>
+
+  <a mat-button color="warn" (click)="onRemoveTodo.emit(item)">remove</a>
+</div>

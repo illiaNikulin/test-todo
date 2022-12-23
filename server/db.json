@@ -1,0 +1,28 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "index": 1,
+      "title": "Kitchen Cleanup",
+      "description": "Clean my dirty kitchen",
+      "createdAt": "2022-12-23T13:40:39.258Z",
+      "done": true
+    },
+    {
+      "id": 2,
+      "index": 0,
+      "title": "Taxes",
+      "description": "Start doing my taxes and contact my accountant jhon for advice",
+      "createdAt": "2022-12-23T13:40:39.258Z",
+      "done": false
+    },
+    {
+      "title": "qwe",
+      "description": "eeeeewww",
+      "done": false,
+      "createdAt": "2022-12-23T16:49:29.665Z",
+      "index": 0,
+      "id": 3
+    }
+  ]
+}

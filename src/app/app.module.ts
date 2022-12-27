@@ -8,7 +8,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { HttpClientModule } from '@angular/common/http';
 import { TodoModalComponent } from './modals/todo-modal/todo-modal.component';
 import { TodoCreateModalComponent } from './modals/todo-create-modal/todo-create-modal.component';
-import { TestComponent } from './modals/test/test.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
@@ -16,12 +15,12 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     TodoModalComponent,
-    TodoCreateModalComponent,
-    TestComponent
+    TodoCreateModalComponent
   ],
   imports: [
     BrowserModule,

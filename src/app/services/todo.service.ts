@@ -15,7 +15,7 @@ export class TodoService {
     return this.http.get<ITodo[]>(this.BASE_URL_TODO);
   }
 
-  changeTodoDone(id: number, todo: ITodo) {
+  putTodo(id: number, todo: ITodo) {
     return this.http.put<ITodo>(`${this.BASE_URL_TODO}/${id}`, todo);
   }
 

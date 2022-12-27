@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ITodo } from 'src/app/models/todo.interface';
 
 @Component({
@@ -6,15 +6,11 @@ import { ITodo } from 'src/app/models/todo.interface';
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.scss']
 })
-export class TodoItemComponent implements OnInit {
+export class TodoItemComponent {
 
   @Input() item: ITodo;
   @Output() onRemoveTodo = new EventEmitter<ITodo>();
   @Output() onEditTodo = new EventEmitter<ITodo>();
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+  @Output() onViewTodo = new EventEmitter<ITodo>();
 
 }

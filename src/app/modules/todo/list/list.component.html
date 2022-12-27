@@ -16,29 +16,37 @@
 
     <div cdkDropListGroup>
       <div class="todo-container">
-        <h2>To do</h2>
+        <h2>Todo list</h2>
+        <mat-form-field class="example-full-width">
+          <mat-label>Search Todo</mat-label>
+          <input matInput placeholder="Ex. Lesson" [(ngModel)]="searchTodo">
+        </mat-form-field>
         <div
           cdkDropList
           [cdkDropListData]="todoList"
           class="todo-list"
           (cdkDropListDropped)="drop($event)">
           <app-todo-item
-          *ngFor="let item of todoList"
+          *ngFor="let item of todoList | filter: searchTodo:'title'"
           [item]="item"
           cdkDrag
           (onRemoveTodo)="removeTodo($event)"
-          (onEditTodo)="openTodoDialog($event)"
+          (onViewTodo)="openTodoDialog($event)"
+          (onEditTodo)="openTodoCreateDialog($event)"
           ></app-todo-item>
 
         </div>
       </div>
 
       <div class="todo-container">
-        <h2>Done</h2>
-
+        <h2>Done list</h2>
+        <mat-form-field class="example-full-width">
+          <mat-label>Search Done</mat-label>
+          <input matInput placeholder="Ex. Lesson" [(ngModel)]="searchDone">
+        </mat-form-field>
         <div
           cdkDropList
-          [cdkDropListData]="doneList"
+          [cdkDropListData]="doneList | filter: searchDone:'title'"
           class="todo-list"
           (cdkDropListDropped)="drop($event)">
           <app-todo-item

@@ -32,7 +32,7 @@ clone the repo
 Go to your developer folder Clone this project repository to your local machine
 
 change into the repo directory
-cd tech-test
+cd test-todo
 
 install
 npm install

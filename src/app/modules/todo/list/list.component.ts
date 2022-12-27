@@ -17,6 +17,9 @@ import { TodoService } from 'src/app/services/todo.service';
 export class ListComponent implements OnInit {
   todoList: ITodo[];
   doneList: ITodo[];
+  searchDone: string;
+  searchTodo: string;
+
   constructor(
     private todoService: TodoService,
     private matSnackBar: MatSnackBar,
@@ -31,18 +34,13 @@ export class ListComponent implements OnInit {
     this.todoService.getTodoList().pipe(take(1)).subscribe(data => {
       this.todoList = data.filter(el => !el.done);
       this.doneList = data.filter(el => el.done);
-      console.log('this.todoList', this.todoList);
-      console.log('this.doneList', this.doneList);
-
-      console.log('data', data);
-
     });
   }
 
   changeTodoDone(todo: ITodo, index: number) {
     todo.done = !todo.done;
     todo.index = index;
-    this.todoService.changeTodoDone(todo.id, todo).subscribe(() => {
+    this.todoService.putTodo(todo.id, todo).subscribe(() => {
       this.matSnackBar.open(`Todo "${todo.title}" set as ${todo.done ? 'Done' : 'Not done'}!`, null, {
         duration: 1000,
       })
@@ -66,7 +64,7 @@ export class ListComponent implements OnInit {
 
   removeTodo(todo: ITodo) {
     this.todoService.removeTodo(todo.id).pipe(take(1)).subscribe(() => {
-      this.matSnackBar.open(`Todo "${todo.title}" set as ${todo.done ? 'Done' : 'Not done'}!`, null, {
+      this.matSnackBar.open(`Todo "${todo.title}" set as ${todo.done ? 'Done' : 'Todo'}!`, null, {
         duration: 1000,
       })
       this.loadData();
@@ -79,16 +77,33 @@ export class ListComponent implements OnInit {
     });
   }
 
-  openTodoCreateDialog() {
-    let dialog = this.dialog.open(TodoCreateModalComponent);
+  openTodoCreateDialog(todo?: ITodo) {
+
+    const config = todo ? {data: todo} : null;
+    let dialog = this.dialog.open(TodoCreateModalComponent, config);
+
     dialog.afterClosed().subscribe(res => {
       if (res) {
-        this.todoService.postTodoDone({...res, done: false, createdAt: new Date().toISOString(), index: 0}).pipe(take(1)).subscribe(() => {
-          this.loadData();
-        })
+
+        if (todo) {
+          this.todoService.putTodo(todo.id, {...todo, ...res }).pipe(take(1)).subscribe((eTodo) => {
+            this.matSnackBar.open(`Todo "${eTodo.title}" changed!`, null, {
+              duration: 1000,
+            })
+            this.loadData();
+          })
+        } else {
+          this.todoService.postTodoDone({...res, done: false, createdAt: new Date().toISOString(), index: 0}).pipe(take(1)).subscribe((nTodo) => {
+            this.matSnackBar.open(`Todo "${nTodo.title}" created!`, null, {
+              duration: 1000,
+            })
+            this.loadData();
+          })
+        }
+
+
       }
     })
   }
-
 
 }

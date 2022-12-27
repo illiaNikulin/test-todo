@@ -2,7 +2,7 @@
   "tasks": [
     {
       "id": 1,
-      "index": 1,
+      "index": 0,
       "title": "Kitchen Cleanup",
       "description": "Clean my dirty kitchen",
       "createdAt": "2022-12-23T13:40:39.258Z",
@@ -10,8 +10,8 @@
     },
     {
       "id": 2,
-      "index": 0,
-      "title": "Taxes",
+      "index": 1,
+      "title": "Taxes123",
       "description": "Start doing my taxes and contact my accountant jhon for advice",
       "createdAt": "2022-12-23T13:40:39.258Z",
       "done": false
@@ -21,8 +21,48 @@
       "description": "eeeeewww",
       "done": false,
       "createdAt": "2022-12-23T16:49:29.665Z",
-      "index": 0,
+      "index": 1,
       "id": 3
+    },
+    {
+      "title": "qweq",
+      "description": "asdasdasd qw eqwe qwe qwe",
+      "done": true,
+      "createdAt": "2022-12-24T21:31:53.593Z",
+      "index": 2,
+      "id": 4
+    },
+    {
+      "title": "xghj",
+      "description": "cvbnm,m ",
+      "done": false,
+      "createdAt": "2022-12-24T21:35:48.100Z",
+      "index": 2,
+      "id": 5
+    },
+    {
+      "title": "qqq",
+      "description": "wwww",
+      "done": true,
+      "createdAt": "2022-12-24T21:35:51.849Z",
+      "index": 0,
+      "id": 6
+    },
+    {
+      "title": "eeee",
+      "description": "wqwew",
+      "done": true,
+      "createdAt": "2022-12-24T21:35:55.290Z",
+      "index": 1,
+      "id": 7
+    },
+    {
+      "title": "wwerrew",
+      "description": "weewe",
+      "done": false,
+      "createdAt": "2022-12-24T21:35:58.957Z",
+      "index": 0,
+      "id": 8
     }
   ]
 }
